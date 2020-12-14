@@ -1,0 +1,54 @@
+{
+  "name": "@sorry-cypress/api",
+  "version": "0.4.1",
+  "author": {
+    "name": "Andrew Goldis",
+    "email": "agoldis@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agoldis/sorry-cypress.git"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/typings",
+  "scripts": {
+    "dev": "run-p generate:watch dev:watch",
+    "dev:watch": "nodemon --inspect=0.0.0.0:9230 -e ts --watch 'src/**/*.ts' -r ./ts-dev.js src/index.ts",
+    "copy-schema": "cp ./src/schema/*.graphql ./dist/schema",
+    "generate": "graphql-codegen",
+    "generate:watch": "graphql-codegen --watch",
+    "build": "npm run generate && npm run build:types && npm run build:js && npm run copy-schema",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir dist --extensions \".ts\" --source-maps inline",
+    "start": "node ./dist/",
+    "clean": "rimraf ./dist",
+    "test": "echo \"@sorry-cypress/api\"",
+    "lint": "eslint ./ --ext ts"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-typescript": "^7.3.3",
+    "@graphql-codegen/cli": "^1.13.4",
+    "@graphql-codegen/typescript": "^1.13.4",
+    "@graphql-codegen/typescript-resolvers": "^1.13.4",
+    "@types/node": "^12.7.2",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "graphql-import": "^0.7.1",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.0",
+    "ts-node": "^8.3.0",
+    "tsconfig-paths": "^3.8.0",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "apollo-server": "2.9.3",
+    "dotenv": "^8.1.0",
+    "graphql": "^14.5.4",
+    "graphql-import": "^0.7.1",
+    "graphql-iso-date": "^3.6.1",
+    "mongodb": "^3.3.2"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "env": {
+    "allureResultsPath": "AllureRerports/results"
+  },
+  "projectId": "saj6e3",
+  "video": true
+}

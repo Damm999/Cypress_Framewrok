@@ -1,0 +1,21 @@
+{
+  "name": "cypress_framework",
+  "version": "1.0.0",
+  "description": "Test Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open",
+    "cypress:allure": "npx cypress run --env allure=true",
+    "cypress:dashboard": "npx cypress run --record --key c8a8b1c9-2915-40da-a552-5ac60924ba7b --env allure=true",
+    "cypress:parallel": "npx cypress run --record --key c8a8b1c9-2915-40da-a552-5ac60924ba7b --parallel --ci-build-id cypressParallel-05",
+    "cypress:allureParallel": "npx cypress run --env allure=true --record --key c8a8b1c9-2915-40da-a552-5ac60924ba7b --parallel --ci-build-id cypressParallel-05",
+    "allure": "allure generate ./AllureRerports/results && allure open"
+  },
+  "author": "Tupurani Krishna Kaushik",
+  "license": "ISC",
+  "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^1.6.2",
+    "cypress": "^6.1.0"
+  }
+}

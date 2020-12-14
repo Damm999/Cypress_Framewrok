@@ -1,0 +1,6 @@
+node_modules
+packages/api/node_modules
+packages/dashboard/node_modules
+packages/director/node_modules
+cypress/videos
+AllureRerports
